@@ -41,12 +41,16 @@ const verifyToken = require('./routes/validate-token');
 app.use('/api/user', authRouters);
 app.use('/api/admin', verifyToken, adminRoutes);
 
-app.get('/', (req, res) => {
-    res.json({
-        estado: true,
-        mensaje: 'funciona!'
-    })
-});
+// app.get('/', (req, res) => {
+//     res.json({
+//         estado: true,
+//         mensaje: 'funciona!'
+//     })
+// });
+
+const history = require('connect-history-api-fallback');
+app.use(history());
+app.use(express.static(__dirname + "/public"));
 
 // iniciar server
 const PORT = process.env.PORT || 3001;

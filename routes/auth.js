@@ -4,7 +4,7 @@ const Joi = require('@hapi/joi');
 const bcrypt = require('bcrypt');   
 const jwt = require('jsonwebtoken');
 
-
+//esto deberia estar en otro archivo 
 const schemaRegister = Joi.object({
     name: Joi.string().min(6).max(255).required(),
     email: Joi.string().min(6).max(255).required().email(),
